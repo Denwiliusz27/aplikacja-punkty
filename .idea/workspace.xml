@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7e684f14-3dcd-4ff7-84d2-5a5abb042ced" name="Default Changelist" comment="" />
+    <list default="true" id="7e684f14-3dcd-4ff7-84d2-5a5abb042ced" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Displayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/InputTaker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ScoreApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JAVA - lekcje/hello.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hello.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +23,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1dVIbYTqvSt3mBqsaDiEV7mMeyZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -22,6 +35,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="project.structure.last.edited" value="Artifacts" />
@@ -29,8 +43,8 @@
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunManager">
-    <configuration name="hello" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="hello" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="JAVA - lekcje" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -38,7 +52,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.hello" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -52,7 +66,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1592503905980</updated>
-      <workItem from="1592503911836" duration="24729000" />
+      <workItem from="1592503911836" duration="27541000" />
     </task>
     <servers />
   </component>
@@ -64,22 +78,22 @@
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
     <state x="2280" y="243" width="560" height="597" key="#com.intellij.ide.util.MemberChooser/46.0.1554.805/1600.0.1920.1080@1600.0.1920.1080" timestamp="1595597830231" />
-    <state width="1870" height="287" key="GridCell.Tab.0.bottom" timestamp="1598277632705">
+    <state width="1870" height="364" key="GridCell.Tab.0.bottom" timestamp="1598343247087">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
-    <state width="1870" height="287" key="GridCell.Tab.0.bottom/46.0.1554.805/1600.0.1920.1080@1600.0.1920.1080" timestamp="1598277632705" />
-    <state width="1870" height="287" key="GridCell.Tab.0.center" timestamp="1598277632704">
+    <state width="1870" height="364" key="GridCell.Tab.0.bottom/46.0.1554.805/1600.0.1920.1080@1600.0.1920.1080" timestamp="1598343247087" />
+    <state width="1870" height="364" key="GridCell.Tab.0.center" timestamp="1598343247086">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
-    <state width="1870" height="287" key="GridCell.Tab.0.center/46.0.1554.805/1600.0.1920.1080@1600.0.1920.1080" timestamp="1598277632704" />
-    <state width="1870" height="287" key="GridCell.Tab.0.left" timestamp="1598277632704">
+    <state width="1870" height="364" key="GridCell.Tab.0.center/46.0.1554.805/1600.0.1920.1080@1600.0.1920.1080" timestamp="1598343247086" />
+    <state width="1870" height="364" key="GridCell.Tab.0.left" timestamp="1598343247086">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
-    <state width="1870" height="287" key="GridCell.Tab.0.left/46.0.1554.805/1600.0.1920.1080@1600.0.1920.1080" timestamp="1598277632704" />
-    <state width="1870" height="287" key="GridCell.Tab.0.right" timestamp="1598277632705">
+    <state width="1870" height="364" key="GridCell.Tab.0.left/46.0.1554.805/1600.0.1920.1080@1600.0.1920.1080" timestamp="1598343247086" />
+    <state width="1870" height="364" key="GridCell.Tab.0.right" timestamp="1598343247086">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
-    <state width="1870" height="287" key="GridCell.Tab.0.right/46.0.1554.805/1600.0.1920.1080@1600.0.1920.1080" timestamp="1598277632705" />
+    <state width="1870" height="364" key="GridCell.Tab.0.right/46.0.1554.805/1600.0.1920.1080@1600.0.1920.1080" timestamp="1598343247086" />
     <state x="2043" y="117" width="1034" height="849" key="SettingsEditor" timestamp="1595582881701">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
