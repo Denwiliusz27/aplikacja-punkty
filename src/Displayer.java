@@ -11,4 +11,7 @@ public class Displayer {
             System.out.printf("%d. %s \n", i+1, lista.get(i));
         }
     }
+    public void displayInputMessage(String message){
+        System.out.printf("Podaj %s: ", message);
+    }
 }

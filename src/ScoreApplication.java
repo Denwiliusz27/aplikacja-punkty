@@ -12,47 +12,10 @@ public class ScoreApplication {
     }
 
     public void run(){
-        System.out.println("dziala");
-
-        int answer = 0;
         List<Score> scoreArray = new ArrayList<>();
 
-        while(answer != 3) {
-            displayer.displayMenu(List.of("dodaj wynik", "wyswietl wynik", "wyjdz"));
-
-            System.out.println("Wybierz punkt: ");
-           // Scanner scanner = new Scanner(System.in);
-
-            //scanner = isInt(scanner);
-
-            answer = inputTaker.getIntValue();
-            System.out.println("Wybrano: " + answer + " \n");
-
-            switch (answer) {
-                case 1:
-                    System.out.println("Podaj imie: ");
-
-                   // scanner = isString(scanner);
-                    String name = inputTaker.getStringValue();
-
-                    System.out.println("Podaj wynik: ");
-
-                   // scanner = isInt(scanner);
-                    int points = inputTaker.getIntValue();
-
-                    scoreArray.add(new Score(name, points));
-                    break;
-
-                case 2:
-                    print(scoreArray);
-                    break;
-
-                default:
-                    break;
-            }
-
-            System.out.println("\n");
-        }
+        MenuHandler menuHandler = new MenuHandler();
+        menuHandler.getResponse();
 
     }
 
