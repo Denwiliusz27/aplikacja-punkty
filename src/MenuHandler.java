@@ -17,16 +17,16 @@ public class MenuHandler {
         while(answer != 3) {
             displayer.displayMenu(List.of("dodaj wynik", "wyswietl wynik", "wyjdz"));
 
-            System.out.println("Wybierz punkt: ");
-            // Scanner scanner = new Scanner(System.in);
-
-            //scanner = isInt(scanner);
+            displayer.displayInputMessage("numer");
+            //System.out.println("Wybierz punkt: ");
 
             answer = inputTaker.getIntValue();
-            System.out.println("Wybrano: " + answer + " \n");
+
+            displayer.displayChoseNumber(answer);
+            //System.out.println("Wybrano: " + answer + " \n");
 
             switch (answer) {
-                case MenuOption.ADD_SCORE.getvalue():
+                case 1:   //MenuOption.ADD_SCORE.getvalue():
                     addScore();
 
                     break;
@@ -41,8 +41,6 @@ public class MenuHandler {
 
             System.out.println("\n");
         }
-
-
     }
 
     private void addScore() {

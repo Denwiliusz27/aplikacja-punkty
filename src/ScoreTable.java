@@ -5,7 +5,7 @@ public class ScoreTable {
     private List<Score> scores;
 
     public ScoreTable(){
-        List<Score> scores  = new ArrayList<>();
+        scores  = new ArrayList<>();
     }
 
     public void addScore(Score score) {

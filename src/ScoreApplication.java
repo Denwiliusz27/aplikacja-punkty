@@ -16,11 +16,9 @@ public class ScoreApplication {
 
         MenuHandler menuHandler = new MenuHandler();
         menuHandler.getResponse();
-
     }
 
     public static Scanner isInt(Scanner scanner){
-
         if (!scanner.hasNextInt()) {
             System.out.println("!!! To nie jest liczba, wpisz ponownie: ");
             scanner = new Scanner(System.in);

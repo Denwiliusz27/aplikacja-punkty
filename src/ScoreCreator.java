@@ -18,8 +18,7 @@ public class ScoreCreator {
 
     public int createScore(){
         displayer.displayInputMessage("wynik");
-
-        return  inputTaker.getIntValue();
+        return inputTaker.getIntValue();
     }
 
 }
