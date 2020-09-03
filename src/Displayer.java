@@ -16,7 +16,11 @@ public class Displayer {
         System.out.printf("Podaj %s: ", message);
     }
 
-    public void displayChoseNumber(int answer){
-        System.out.printf("Wybrano: %d \n\n", answer);
+    public void displayChoseNumber(MenuOption answer){
+        System.out.printf("Wybrano: %d \n\n", answer.getvalue());
+    }
+
+    public void displayExitMessage(String message){
+        System.out.printf("Wybrano opcje %s \n", message);
     }
 }

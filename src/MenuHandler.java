@@ -4,6 +4,7 @@ public class MenuHandler {
     private Displayer displayer;
     private InputTaker inputTaker;
     private ScoreTable scoreTable;
+    //private MenuOption menuOption;
 
     public MenuHandler(){
         displayer = new Displayer();
@@ -12,35 +13,40 @@ public class MenuHandler {
     }
 
     void getResponse(){
-        int answer = 0;
+        //int answer = 0;
+        MenuOption answer;
+        //answer = MenuOption.DEFAULT;
 
-        while(answer != 3) {
+        do{
             displayer.displayMenu(List.of("dodaj wynik", "wyswietl wynik", "wyjdz"));
 
             displayer.displayInputMessage("numer");
             //System.out.println("Wybierz punkt: ");
 
-            answer = inputTaker.getIntValue();
+            answer = inputTaker.getOptionByInt();
 
             displayer.displayChoseNumber(answer);
             //System.out.println("Wybrano: " + answer + " \n");
 
             switch (answer) {
-                case 1:   //MenuOption.ADD_SCORE.getvalue():
+                case ADD_SCORE:
                     addScore();
-
                     break;
 
-                case 2:
-                   // print(scoreArray);
+                case PRINT_SCORE:
+                    //print(scoreArray);
+                    break;
+
+                case EXIT:
+                    displayer.displayExitMessage("wyjscia");
                     break;
 
                 default:
+                    displayer.displayExitMessage("niedozwolona");
                     break;
             }
-
             System.out.println("\n");
-        }
+        } while(answer != MenuOption.EXIT && answer != MenuOption.ERROR);
     }
 
     private void addScore() {
