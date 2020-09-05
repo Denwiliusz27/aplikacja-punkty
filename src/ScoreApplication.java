@@ -2,15 +2,28 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Klasa odpowiedzialna za uruchomienie głównej aplikacji
+ */
 public class ScoreApplication {
     private Displayer displayer;
     private InputTaker inputTaker;
 
+    /**
+     * Konstruktor, który tworzy nowe obiekty typu {@link Displayer} i {@link InputTaker} oraz przypisuje je do pól
+     * displayer i inputTaker
+     */
     public ScoreApplication(){
         displayer = new Displayer();
         inputTaker = new InputTaker();
     }
 
+    /**
+     * Metoda odpowiadająca za uruchomienie programu.
+     *
+     * Na początku zostaje utworzony obiekt typu {@link MenuHandler}, a następnie na nim zostaje wywołana metoda
+     * {@link MenuHandler#getResponse()}
+     */
     public void run(){
         List<Score> scoreArray = new ArrayList<>();
 
@@ -18,6 +31,7 @@ public class ScoreApplication {
         menuHandler.getResponse();
     }
 
+    /*
     public static Scanner isInt(Scanner scanner){
         if (!scanner.hasNextInt()) {
             System.out.println("!!! To nie jest liczba, wpisz ponownie: ");
@@ -50,4 +64,5 @@ public class ScoreApplication {
             System.out.println(" Brak wynikow ");
         }
     }
+    */
 }
