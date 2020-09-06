@@ -1,1 +1,1 @@
-# aplikacja-punkty
+# plikacja z menu
