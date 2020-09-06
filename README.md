@@ -1,1 +1,1 @@
-# plikacja z menu
+# Aplikacja z menu
