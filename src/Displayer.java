@@ -66,4 +66,13 @@ public class Displayer {
     public void displayEmptyLine(){
         System.out.println();
     }
+
+    /**
+     * Wypisuje na ekranie wyniki z listy wyników
+     *
+     * @param scoreArray lista wyników
+     */
+    public void displayScores(List<Score> scoreArray){
+        scoreArray.forEach(System.out::println);
+    }
 }

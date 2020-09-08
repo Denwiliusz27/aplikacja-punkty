@@ -26,4 +26,13 @@ public class ScoreTable {
     public void addScore(Score score) {
         scores.add(score);
     }
+
+    /**
+     * Zwraca tabelę wyników
+     *
+     * @return tabela wyników
+     */
+    public List<Score> getScoreTable(){
+        return scores;
+    }
 }

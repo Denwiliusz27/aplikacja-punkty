@@ -46,13 +46,16 @@ public class MenuHandler {
 
             displayer.displayChoseNumber(answer);
 
+            FileHandler filehandler = new FileHandler();
+
             switch (answer) {
                 case ADD_SCORE:
                     addScore();
                     break;
 
                 case PRINT_SCORES:
-                    //print(scoreArray);
+                    filehandler.saveToFile(scoreTable.getScoreTable());
+                    printScores(filehandler.getFromFile().getScoreTable());
                     break;
 
                 case EXIT:
@@ -78,5 +81,17 @@ public class MenuHandler {
     private void addScore() {
         Score score = new ScoreCreator().create();
         scoreTable.addScore(score);
+    }
+
+    /**
+     * Wypisuje na ekranie tablicę wyników
+     *
+     * Jako parametr zostaje podana lista, która następnie zostaje podana w argumencie metody
+     * {@link Displayer#displayScores(List)}
+     *
+     * @param scoreArray lista wyników
+     */
+    private void printScores(List<Score> scoreArray){
+        displayer.displayScores(scoreArray);
     }
 }
