@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -7,6 +8,12 @@ import java.util.List;
  * Klasa służąca do zapisywania i odczytywania z pliku
  */
 public class FileHandler {
+
+    Displayer displayer;
+
+    public FileHandler(){
+        displayer = new Displayer();
+    }
 
     /**
      * Służy do zapisywania do pliku.
@@ -18,23 +25,24 @@ public class FileHandler {
      *
      * @param scoreArray lista wyników
      */
-    public void saveToFile(List<Score> scoreArray){
+    public void saveToFile(List<Score> scoreArray) {
         FileWriter fileWriter = null;
         try {
              fileWriter = new FileWriter("files/Scores.txt");
             for (Score score: scoreArray) {
                 fileWriter.write(score.toString() + "\n");
             }
-            fileWriter.close();
+        } catch (FileNotFoundException e) {
+            displayer.displayException(e);
         } catch (IOException e) {
-            e.printStackTrace();
-        }
-        finally {
+            displayer.displayException(e);
+        } finally {
             try {
                 if(fileWriter != null) {
                     fileWriter.close();
                 }
             } catch (IOException e) {
+                displayer.displayException(e);
                 e.printStackTrace();
             }
         }
@@ -55,7 +63,7 @@ public class FileHandler {
      *
      * @return stworzona lista wyników z danych zapisanych w pliku
      */
-    public ScoreTable getFromFile(){
+    public ScoreTable getFromFile() {
         ScoreTable scoreTable = new ScoreTable();
         FileReader fileReader = null;
         String name = "";
@@ -69,18 +77,16 @@ public class FileHandler {
 
         try {
             fileReader = new FileReader("files/Scores.txt");
-            while((readed = fileReader.read()) != -1){
-                if(readed != newline){
-                    if(readed != dots && readed != space){
-                        if(readed >= zeroInAscii && readed <= nineInAscii){
+            while ((readed = fileReader.read()) != -1) {
+                if (readed != newline) {
+                    if (readed != dots && readed != space) {
+                        if (readed >= zeroInAscii && readed <= nineInAscii) {
                             points += (char) readed;
-                        }
-                        else {
+                        } else {
                             name += (char) readed;
                         }
                     }
-                }
-                else {
+                } else {
                     int intPoints = Integer.parseInt(points);
 
                     Score score = new Score(name, intPoints);
@@ -90,15 +96,17 @@ public class FileHandler {
                     points = "";
                 }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            displayer.displayException(e);
+        } catch (IOException e){
+            displayer.displayException(e);
         } finally {
             try {
                 if(fileReader != null) {
                     fileReader.close();
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                displayer.displayException(e);
             }
         }
         return scoreTable;

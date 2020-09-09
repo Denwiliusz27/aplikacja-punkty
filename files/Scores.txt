@@ -1,4 +1,2 @@
-karo : 123
-niebieski : 32
-julka : 1
-klaudia : 99
+ada : 23
+ela : 34

@@ -75,4 +75,13 @@ public class Displayer {
     public void displayScores(List<Score> scoreArray){
         scoreArray.forEach(System.out::println);
     }
+
+    /**
+     * Wypisuje jaki wyjątek został przechwycony
+     *
+     * @param exception przechwycony wyjątek
+     */
+    public void displayException(Exception exception){
+        System.out.println("Przechwycono wyjątek: " + exception);
+    }
 }
