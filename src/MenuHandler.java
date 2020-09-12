@@ -46,7 +46,16 @@ public class MenuHandler {
 
             displayer.displayChoseNumber(answer);
 
-            FileHandler filehandler = new FileHandler();
+            FileHandlerDAO filehandler = new FileHandlerDAO();
+
+
+
+           // DAO<Score> DAO = new MemoryHandlerDAO();
+            //DAO.getAll();
+
+
+
+
 
             switch (answer) {
                 case ADD_SCORE:
@@ -54,8 +63,8 @@ public class MenuHandler {
                     break;
 
                 case PRINT_SCORES:
-                    filehandler.saveToFile(scoreTable.getScoreTable());
-                    printScores(filehandler.getFromFile().getScoreTable());
+                    filehandler.save(scoreTable.getScoreTable());
+                    printScores(filehandler.getAll().getScoreTable());
                     break;
 
                 case EXIT:
@@ -80,7 +89,8 @@ public class MenuHandler {
      */
     private void addScore() {
         Score score = new ScoreCreator().create();
-        scoreTable.addScore(score);
+        // DAO.add(score);
+        //scoreTable.addScore(score); <-- tego nie bedzie w memoryhandlerze
     }
 
     /**

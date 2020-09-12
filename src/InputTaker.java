@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -33,12 +34,20 @@ public class InputTaker {
      * @return stała wyliczeniowa posiadająca wartość równą wprowadzonej przez użytkownika liczbie
      */
     public MenuOption getOptionByInt(){
-        int inputInt = scanner.nextInt();
+        int inputInt;
 
-        for (MenuOption option: MenuOption.values()) {
-            if(inputInt == option.getvalue()){
-                return option;
+        try{
+            inputInt = scanner.nextInt();
+
+            for (MenuOption option: MenuOption.values()) {
+                if(inputInt == option.getvalue()){
+                    return option;
+                }
             }
+        } catch (InputMismatchException e){
+            System.out.println("zlapalem " + e);
+            scanner.next();  /// ?
+            return this.getOptionByInt();
         }
 
         return MenuOption.ERROR;

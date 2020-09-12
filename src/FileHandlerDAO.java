@@ -7,11 +7,11 @@ import java.util.List;
 /**
  * Klasa służąca do zapisywania i odczytywania z pliku
  */
-public class FileHandler {
+public class FileHandlerDAO implements DAO<Score> {
 
     Displayer displayer;
 
-    public FileHandler(){
+    public FileHandlerDAO(){
         displayer = new Displayer();
     }
 
@@ -25,10 +25,12 @@ public class FileHandler {
      *
      * @param scoreArray lista wyników
      */
-    public void saveToFile(List<Score> scoreArray) {
+
+    @Override
+    public void save(List<Score> scoreArray) {
         FileWriter fileWriter = null;
         try {
-             fileWriter = new FileWriter("files/Scores.txt");
+            fileWriter = new FileWriter("files/Scores.txt");
             for (Score score: scoreArray) {
                 fileWriter.write(score.toString() + "\n");
             }
@@ -63,7 +65,9 @@ public class FileHandler {
      *
      * @return stworzona lista wyników z danych zapisanych w pliku
      */
-    public ScoreTable getFromFile() {
+    @Override
+    public ScoreTable getAll() {
+
         ScoreTable scoreTable = new ScoreTable();
         FileReader fileReader = null;
         String name = "";
