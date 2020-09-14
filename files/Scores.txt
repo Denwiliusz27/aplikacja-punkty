@@ -1,5 +1,3 @@
-ada : 23
-ela : 54
-ew : 4
-ada : 23
-ada : 56
+ala : 34
+ela : 3
+wujek : 2

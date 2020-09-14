@@ -23,16 +23,17 @@ public class InputTaker {
      */
     public int getIntValue(){
         int value;
+        scanner.reset();
 
         try {
             value = scanner.nextInt();
-            return value;
         } catch (InputMismatchException e) {
             displayer.displayException(e);
             scanner.next();
             displayer.displayInputMessage("liczbe punktow");
             return this.getIntValue();
         }
+        return value;
     }
 
     /**
@@ -51,17 +52,17 @@ public class InputTaker {
 
         try{
             inputInt = scanner.nextInt();
-
-            for (MenuOption option: MenuOption.values()) {
-                if(inputInt == option.getvalue()){
-                    return option;
-                }
-            }
         } catch (InputMismatchException e){
             displayer.displayException(e);
             scanner.next();
             displayer.displayInputMessage("numer");
             return this.getOptionByInt();
+        }
+
+        for (MenuOption option: MenuOption.values()) {
+            if(inputInt == option.getvalue()){
+                return option;
+            }
         }
 
         return MenuOption.ERROR;
@@ -77,11 +78,20 @@ public class InputTaker {
     public String getStringValue(){
         if(scanner.hasNextInt()){
             displayer.displayException(new InputMismatchException(""));
-            scanner.next();  /// ?
+            scanner.next();
             displayer.displayInputMessage("imie");
             return getStringValue();
         } else {
-            return scanner.next();
+            String scan = scanner.next();
+            if(!scan.matches("^[a-zA-Z]*$")){
+                displayer.displayException(new InputMismatchException(""));
+                displayer.displayInputMessage("imie");
+                return getStringValue();
+            }
+            else {
+                return scan;
+            }
         }
+
     }
 }
