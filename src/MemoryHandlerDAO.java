@@ -1,14 +1,17 @@
-import java.util.List;
-
 public class MemoryHandlerDAO implements DAO<Score>{
+    ScoreTable scoreTable;
 
-    @Override
-    public void save(List<Score> scoreArray) { // dodanie do scoretable pojed. scora
-
+    public MemoryHandlerDAO(){
+        scoreTable = new ScoreTable();
     }
 
     @Override
-    public ScoreTable getAll() {
-        return null; //this.scoretable.getScores()
+    public void saveScore(Score score) {
+        scoreTable.addScore(score);
+    }
+
+    @Override
+    public ScoreTable getScores() {
+        return this.scoreTable;
     }
 }

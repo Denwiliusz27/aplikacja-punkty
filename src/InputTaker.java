@@ -6,30 +6,43 @@ import java.util.Scanner;
  */
 public class InputTaker {
     private Scanner scanner;
+    private Displayer displayer;
 
-    /**
-     * Konstruktor tworzący nowy Scanner i przypisujący go do pola scanner
-     */
     public InputTaker(){
         scanner = new Scanner(System.in);
+        displayer = new Displayer();
     }
 
     /**
-     * Metoda pobiera wprowadzoną przez użytkownika wartość liczbową i następnie ją zwraca
+     * Metoda pobiera wprowadzoną przez użytkownika wartość liczbową i następnie ją zwraca.
+     *
+     * W przypadku błędnej wartości lub wprowadzenia ciągu liter zostaje wyrzucony wyjątek, po czym ponownie pobierana
+     * jest wartość liczbowa
      *
      * @return wpisana wartość liczbowa
      */
     public int getIntValue(){
-        return scanner.nextInt();
+        int value;
+
+        try {
+            value = scanner.nextInt();
+            return value;
+        } catch (InputMismatchException e) {
+            displayer.displayException(e);
+            scanner.next();
+            displayer.displayInputMessage("liczbe punktow");
+            return this.getIntValue();
+        }
     }
 
     /**
-     * Metoda służy do pobrania wartości licznowej i zwrócenia odpowiadającej jej stałej wyliczeniowej
+     * Metoda służy do pobrania wartości licznowej i zwrócenia odpowiadającej jej stałej wyliczeniowej.
      *
      * Metoda pobiera od użytkownika liczbę, a następnie w pętli przegląda wszystkie stałe wyliczeniowe w celu
      * porównania przypisanych im wartości liczbowych z tą wprowadzoną przez użytkownika. Jeśli porównywana stała
      * wyliczniowa posiada wartość równą wprowadzonej liczbie, zostaje zwrócona przez metodę. Jeśli w programie nie
-     * wystepuje taka stała, zostaje zwrócona stała {@link MenuOption#ERROR}
+     * wystepuje taka stała, zostaje zwrócona stała {@link MenuOption#ERROR}. Jeśli podana wartość nie jest liczbą,
+     * wyrzucany jest wyjątek, a metoda zostaje wywołana ponownie.
      *
      * @return stała wyliczeniowa posiadająca wartość równą wprowadzonej przez użytkownika liczbie
      */
@@ -45,8 +58,9 @@ public class InputTaker {
                 }
             }
         } catch (InputMismatchException e){
-            System.out.println("zlapalem " + e);
-            scanner.next();  /// ?
+            displayer.displayException(e);
+            scanner.next();
+            displayer.displayInputMessage("numer");
             return this.getOptionByInt();
         }
 
@@ -54,11 +68,20 @@ public class InputTaker {
     }
 
     /**
-     * Metoda pobiera od użytkownika tekst, a nastepnie go zwraca
+     * Metoda pobiera od użytkownika tekst, a nastepnie go zwraca.
+     *
+     * Jeśli użytkownik podał liczbę, wyrzucany jest wyjątek, a metoda uruchamiana jest ponownie.
      *
      * @return wprowadzony przez użytkownika tekst
      */
     public String getStringValue(){
-        return scanner.next();
+        if(scanner.hasNextInt()){
+            displayer.displayException(new InputMismatchException(""));
+            scanner.next();  /// ?
+            displayer.displayInputMessage("imie");
+            return getStringValue();
+        } else {
+            return scanner.next();
+        }
     }
 }

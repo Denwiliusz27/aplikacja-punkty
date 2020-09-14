@@ -2,7 +2,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Klasa służąca do zapisywania i odczytywania z pliku
@@ -19,21 +18,19 @@ public class FileHandlerDAO implements DAO<Score> {
      * Służy do zapisywania do pliku.
      *
      * Na początku zostaje utworzony obiekt typu {@link FileWriter} za pomocą możemy zapisywać do pliku. W sekwencji try
-     * zostaje utworzony nowy plik o podnej nazwie. Następnie w pętli za pomocą metody {@link FileWriter#write(int)}
-     * wyniki z przekazanej w parametrze listy wyników zostają zapisane w pliku. W sekwencji catch wyłapywane są wyjątki,
+     * zostaje utworzony nowy plik o podnej nazwie. Następnie za pomocą metody {@link FileWriter#write(int)}
+     * wyniki przekazany w parametrze zostaje zapisany w pliku. W sekwencji catch wyłapywane są wyjątki,
      * a w sekcji finally wykonywana jest próba zamknięcia pliku za pomocą {@link FileWriter#close()}
      *
-     * @param scoreArray lista wyników
+     * @param score pojedynczy wynik
      */
-
     @Override
-    public void save(List<Score> scoreArray) {
+    public void saveScore(Score score) {
         FileWriter fileWriter = null;
+
         try {
-            fileWriter = new FileWriter("files/Scores.txt");
-            for (Score score: scoreArray) {
-                fileWriter.write(score.toString() + "\n");
-            }
+            fileWriter = new FileWriter("files/Scores.txt", true);
+            fileWriter.write(score.toString() + "\n");
         } catch (FileNotFoundException e) {
             displayer.displayException(e);
         } catch (IOException e) {
@@ -66,8 +63,7 @@ public class FileHandlerDAO implements DAO<Score> {
      * @return stworzona lista wyników z danych zapisanych w pliku
      */
     @Override
-    public ScoreTable getAll() {
-
+    public ScoreTable getScores() {
         ScoreTable scoreTable = new ScoreTable();
         FileReader fileReader = null;
         String name = "";

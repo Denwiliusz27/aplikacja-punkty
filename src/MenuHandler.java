@@ -7,7 +7,7 @@ public class MenuHandler {
 
     private Displayer displayer;
     private InputTaker inputTaker;
-    private ScoreTable scoreTable;
+    private DAO<Score> dao;
 
     /**
      * Konstruktor, który tworzy nowe obiekty typu {@link Displayer}, {@link InputTaker} oraz {@link ScoreTable}, oraz
@@ -16,7 +16,7 @@ public class MenuHandler {
     public MenuHandler(){
         displayer = new Displayer();
         inputTaker = new InputTaker();
-        scoreTable = new ScoreTable();
+        dao = new FileHandlerDAO();
     }
 
     /**
@@ -46,25 +46,13 @@ public class MenuHandler {
 
             displayer.displayChoseNumber(answer);
 
-            FileHandlerDAO filehandler = new FileHandlerDAO();
-
-
-
-           // DAO<Score> DAO = new MemoryHandlerDAO();
-            //DAO.getAll();
-
-
-
-
-
             switch (answer) {
                 case ADD_SCORE:
                     addScore();
                     break;
 
                 case PRINT_SCORES:
-                    filehandler.save(scoreTable.getScoreTable());
-                    printScores(filehandler.getAll().getScoreTable());
+                    printScores(dao.getScores());
                     break;
 
                 case EXIT:
@@ -75,33 +63,30 @@ public class MenuHandler {
                     displayer.displayOutMessage("niedozwolona");
                     break;
             }
-
             displayer.displayEmptyLine();
-
         } while(answer != MenuOption.EXIT);
     }
 
     /**
-     * Metoda, która tworzy nowy wynik i dodaje go do tabeli wyników
+     * Metoda, która tworzy nowy wynik i dodaje go do tabeli wyników.
      * 
      * Na początku nowy wynik zostaje stworzony za pomocą metody {@link ScoreCreator#create()}, a następnie jest on
-     * dodawany do listy z wynikami za pomocą {@link ScoreTable#addScore(Score)}
+     * dodawany do listy z wynikami za pomocą {@link DAO#saveScore(Object)}
      */
     private void addScore() {
         Score score = new ScoreCreator().create();
-        // DAO.add(score);
-        //scoreTable.addScore(score); <-- tego nie bedzie w memoryhandlerze
+        dao.saveScore(score);
     }
 
     /**
-     * Wypisuje na ekranie tablicę wyników
+     * Wypisuje na ekranie tablicę wyników.
      *
      * Jako parametr zostaje podana lista, która następnie zostaje podana w argumencie metody
      * {@link Displayer#displayScores(List)}
      *
-     * @param scoreArray lista wyników
+     * @param scoreTable lista wyników
      */
-    private void printScores(List<Score> scoreArray){
-        displayer.displayScores(scoreArray);
+    private void printScores(ScoreTable scoreTable){
+        displayer.displayScores(scoreTable.getScoreTable());
     }
 }
