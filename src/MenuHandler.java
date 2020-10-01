@@ -16,7 +16,7 @@ public class MenuHandler {
     public MenuHandler(){
         displayer = new Displayer();
         inputTaker = new InputTaker();
-        dao = new FileHandlerDAO();
+        dao = new FileHandlerDAO(new ScoreTable());
     }
 
     /**
@@ -52,7 +52,7 @@ public class MenuHandler {
                     break;
 
                 case PRINT_SCORES:
-                    printScores(dao.getScores());
+                    printScores(dao.loadTable());
                     break;
 
                 case EXIT:
@@ -84,9 +84,9 @@ public class MenuHandler {
      * Jako parametr zostaje podana lista, która następnie zostaje podana w argumencie metody
      * {@link Displayer#displayScores(List)}
      *
-     * @param scoreTable lista wyników
+     * @param table lista wyników
      */
-    private void printScores(ScoreTable scoreTable){
-        displayer.displayScores(scoreTable.getScoreTable());
+    private void printScores(Table table){
+        displayer.displayScores(table.getScores());
     }
 }

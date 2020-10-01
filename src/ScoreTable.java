@@ -6,7 +6,7 @@ import java.util.List;
  *
  * Składa się z listy której elementy są typu {@link Score}
  */
-public class ScoreTable {
+public class ScoreTable implements Table {
     private List<Score> scores;
 
     /**
@@ -32,7 +32,7 @@ public class ScoreTable {
      *
      * @return tabela wyników
      */
-    public List<Score> getScoreTable(){
+    public List<Score> getScores(){
         return scores;
     }
 }

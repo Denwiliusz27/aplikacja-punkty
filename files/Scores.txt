@@ -1,3 +1,7 @@
 ala : 34
 ela : 3
 wujek : 2
+ela : 23
+kaja : 23
+dsadsas : 3233
+dsee : 33

@@ -1,8 +1,10 @@
-public class MemoryHandlerDAO implements DAO<Score>{
-    ScoreTable scoreTable;
+import java.util.ArrayList;
 
-    public MemoryHandlerDAO(){
-        scoreTable = new ScoreTable();
+public class MemoryHandlerDAO implements DAO<Score>{
+    Table scoreTable;
+
+    public MemoryHandlerDAO(Table scoreTable){
+        this.scoreTable = scoreTable;
     }
 
     @Override
@@ -11,7 +13,7 @@ public class MemoryHandlerDAO implements DAO<Score>{
     }
 
     @Override
-    public ScoreTable getScores() {
+    public Table loadTable() {
         return this.scoreTable;
     }
 }

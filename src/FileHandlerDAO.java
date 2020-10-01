@@ -9,9 +9,11 @@ import java.io.IOException;
 public class FileHandlerDAO implements DAO<Score> {
 
     Displayer displayer;
+    Table table;
 
-    public FileHandlerDAO(){
+    public FileHandlerDAO(Table table){
         displayer = new Displayer();
+        this.table = table;
     }
 
     /**
@@ -63,8 +65,7 @@ public class FileHandlerDAO implements DAO<Score> {
      * @return stworzona lista wyników z danych zapisanych w pliku
      */
     @Override
-    public ScoreTable getScores() {
-        ScoreTable scoreTable = new ScoreTable();
+    public Table loadTable() {
         FileReader fileReader = null;
         String name = "";
         String points = "";
@@ -90,7 +91,7 @@ public class FileHandlerDAO implements DAO<Score> {
                     int intPoints = Integer.parseInt(points);
 
                     Score score = new Score(name, intPoints);
-                    scoreTable.addScore(score);
+                    table.addScore(score);
 
                     name = "";
                     points = "";
@@ -109,6 +110,6 @@ public class FileHandlerDAO implements DAO<Score> {
                 displayer.displayException(e);
             }
         }
-        return scoreTable;
+        return table;
     }
 }
