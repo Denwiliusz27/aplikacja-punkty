@@ -1,7 +1,8 @@
 import java.util.List;
 
 public interface Table {
-    void addScore(Score score);
-
+    Score addScore(Score score);
     List<Score> getScores();
+    void addToTable(Score score);
+    void clearTable();
 }

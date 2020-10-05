@@ -27,4 +27,12 @@ class Score {
     public String toString() {
         return String.format("%s : %d", name, points);
     }
+
+    public String getName(){
+        return this.name;
+    }
+
+    public int getPoints(){
+        return this.points;
+    }
 }

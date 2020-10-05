@@ -1,7 +1,8 @@
 ala : 34
 ela : 3
 wujek : 2
-ela : 23
-kaja : 23
-dsadsas : 3233
 dsee : 33
+ada : 2
+kajson : 23kajtek : 8
+mmarena : 10
+wojtek : 4

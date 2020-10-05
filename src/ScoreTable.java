@@ -23,8 +23,9 @@ public class ScoreTable implements Table {
      *
      * @param score wynik który zostaje dodany do listy
      */
-    public void addScore(Score score) {
+    public Score addScore(Score score) {
         scores.add(score);
+        return score;
     }
 
     /**
@@ -34,5 +35,15 @@ public class ScoreTable implements Table {
      */
     public List<Score> getScores(){
         return scores;
+    }
+
+    @Override
+    public void addToTable(Score score) {
+        scores.add(score);
+    }
+
+    @Override
+    public void clearTable() {
+        scores.clear();
     }
 }

@@ -7,7 +7,6 @@ import java.io.IOException;
  * Klasa służąca do zapisywania i odczytywania z pliku
  */
 public class FileHandlerDAO implements DAO<Score> {
-
     Displayer displayer;
     Table table;
 
@@ -32,7 +31,10 @@ public class FileHandlerDAO implements DAO<Score> {
 
         try {
             fileWriter = new FileWriter("files/Scores.txt", true);
-            fileWriter.write(score.toString() + "\n");
+            //table.addScore(score);
+            fileWriter.write(table.addScore(score).toString() + "\n");
+            table.clearTable();
+
         } catch (FileNotFoundException e) {
             displayer.displayException(e);
         } catch (IOException e) {
@@ -54,7 +56,7 @@ public class FileHandlerDAO implements DAO<Score> {
      *
      * W sekwencji try zostaje utworzony obiekt typu {@link FileReader} służący do odczytu danych z pliku. Następnie za
      * pomocą metody {@link FileReader#read()} odczytywany jest pojedynczy znak. Następnie sprawdzane jest kolejno czy
-     * jest on znakiem końca pliku, znakiem końca linii, dwukropkiem czy spracją. Następnie w zależności czy znak ten
+     * jest on znakiem końca pliku, znakiem końca linii, dwukropkiem czy spacją. Następnie w zależności czy znak ten
      * jest liczbą czy literą, jest on dodawany do stałej będącej kolejno wynikiem punktowym lub imieniem uczestnika.
      * Po odczycie całej linii odczytana ilość punktów zostaje zamieniona na int, po czym za jej pomocą i stałej name
      * zostaje utworzony obiekt typu {@link Score} i dodany do listy w {@link ScoreTable} za pomocą
@@ -91,7 +93,7 @@ public class FileHandlerDAO implements DAO<Score> {
                     int intPoints = Integer.parseInt(points);
 
                     Score score = new Score(name, intPoints);
-                    table.addScore(score);
+                    table.addToTable(score);
 
                     name = "";
                     points = "";
