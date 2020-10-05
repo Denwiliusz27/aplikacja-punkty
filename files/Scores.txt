@@ -6,3 +6,8 @@ ada : 2
 kajson : 23kajtek : 8
 mmarena : 10
 wojtek : 4
+moniczka : 46
+natalia : 3
+olek : 81
+vojtek : 102
+ada : 14

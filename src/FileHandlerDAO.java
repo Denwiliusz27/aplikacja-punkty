@@ -20,8 +20,9 @@ public class FileHandlerDAO implements DAO<Score> {
      *
      * Na początku zostaje utworzony obiekt typu {@link FileWriter} za pomocą możemy zapisywać do pliku. W sekwencji try
      * zostaje utworzony nowy plik o podnej nazwie. Następnie za pomocą metody {@link FileWriter#write(int)}
-     * wyniki przekazany w parametrze zostaje zapisany w pliku. W sekwencji catch wyłapywane są wyjątki,
-     * a w sekcji finally wykonywana jest próba zamknięcia pliku za pomocą {@link FileWriter#close()}
+     * wyniki przekazany w parametrze zostaje dodany do tabeli a z niej zapisany do pliku. Po tym zostaje z tej tabeli
+     * usunięty. W sekwencji catch wyłapywane są wyjątki, a w sekcji finally wykonywana jest próba zamknięcia pliku za
+     * pomocą {@link FileWriter#close()}
      *
      * @param score pojedynczy wynik
      */
@@ -31,10 +32,8 @@ public class FileHandlerDAO implements DAO<Score> {
 
         try {
             fileWriter = new FileWriter("files/Scores.txt", true);
-            //table.addScore(score);
             fileWriter.write(table.addScore(score).toString() + "\n");
             table.clearTable();
-
         } catch (FileNotFoundException e) {
             displayer.displayException(e);
         } catch (IOException e) {
@@ -60,7 +59,7 @@ public class FileHandlerDAO implements DAO<Score> {
      * jest liczbą czy literą, jest on dodawany do stałej będącej kolejno wynikiem punktowym lub imieniem uczestnika.
      * Po odczycie całej linii odczytana ilość punktów zostaje zamieniona na int, po czym za jej pomocą i stałej name
      * zostaje utworzony obiekt typu {@link Score} i dodany do listy w {@link ScoreTable} za pomocą
-     * {@link ScoreTable#addScore(Score)}. Stałe dla imienia i wyniku punktowego zostają wyzerowane, po czym zostaje
+     * {@link ScoreTable#addToTable(Score)}. Stałe dla imienia i wyniku punktowego zostają wyzerowane, po czym zostaje
      * odczytana kolejna linijka pliku. W segmencie catch są wyłapywane wyjątki, natomiast w finally jest podejmowana
      * próba zamknięcia pliku.
      *

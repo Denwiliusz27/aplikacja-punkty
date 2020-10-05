@@ -28,10 +28,20 @@ class Score {
         return String.format("%s : %d", name, points);
     }
 
+    /**
+     * Metoda zwraca imie przypisane do danego wyniku
+     *
+     * @return imie uczestnika
+     */
     public String getName(){
         return this.name;
     }
 
+    /**
+     * Metoda zwraca ilość punktów zdobytą przez uczestnika
+     *
+     * @return ilość punktów
+     */
     public int getPoints(){
         return this.points;
     }

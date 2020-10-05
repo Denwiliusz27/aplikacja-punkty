@@ -7,7 +7,7 @@ import java.util.List;
  * Składa się z listy której elementy są typu {@link Score}
  */
 public class ScoreTable implements Table {
-    private List<Score> scores;
+    protected List<Score> scores;
 
     /**
      * Tworzy nową listę typu {@link ArrayList} i przypisuje ją do pola scores
@@ -37,11 +37,19 @@ public class ScoreTable implements Table {
         return scores;
     }
 
+    /**
+     * Dodaje wynik typu {@link Score} do listy wyników
+     *
+     * @param score wynik który dodaje się do listy
+     */
     @Override
     public void addToTable(Score score) {
         scores.add(score);
     }
 
+    /**
+     * Usuwa wszystkie pozycje z listy
+     */
     @Override
     public void clearTable() {
         scores.clear();

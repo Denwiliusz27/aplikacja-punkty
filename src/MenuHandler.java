@@ -16,7 +16,7 @@ public class MenuHandler {
     public MenuHandler(){
         displayer = new Displayer();
         inputTaker = new InputTaker();
-        dao = new FileHandlerDAO(new ScoreTable());
+        dao = new MemoryHandlerDAO(new ScoreTwiceTable());
     }
 
     /**
